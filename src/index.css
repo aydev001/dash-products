@@ -59,11 +59,10 @@
   --popover-foreground: oklch(0.18 0.03 250);
 
 
-  --primary: oklch(0.55 0.25 260); /* to‘yqin ko‘k */
-  --primary-foreground: oklch(94.309% 0.00011 271.152); /* oqsimon */
+  --primary: oklch(0.55 0.25 260); 
+  --primary-foreground: oklch(94.309% 0.00011 271.152); 
 
-
-  --secondary: oklch(93.1% 0.00011 271.152); /* yumshoq moviy */
+  --secondary: oklch(93.1% 0.00011 271.152);
   --secondary-foreground: oklch(0.18 0.03 250);
 
   --muted: oklch(92.797% 0.00011 271.152);
