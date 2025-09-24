@@ -7,3 +7,8 @@ export const getProducts = async () : Promise<AxiosResponse<IProductsResponce[]>
     const res = await httpClient.get(API_ENDPOINTS.products)
     return res 
 }
+
+export const getOneProducts = async (id:number) : Promise<AxiosResponse<IProductsResponce>> => {
+    const res = await httpClient.get(`${API_ENDPOINTS.products}/${id}`)
+    return res 
+}

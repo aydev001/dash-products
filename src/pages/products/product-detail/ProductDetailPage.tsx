@@ -1,7 +1,9 @@
+import ProductDetail from "@/features/product-detail/ui/ProductDetail"
+
 const ProductDetailPage = () => {
   return (
     <div>
-      Product detail page
+      <ProductDetail/>
     </div>
   )
 }
