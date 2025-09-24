@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/shared/ui/card"
 import { Button } from "@/shared/ui/button"
-import { getOneProducts } from "@/shared/api/requests/products/products.request"
+import { getOneProduct } from "@/shared/api/requests/products/products.request"
 import type { IProductsResponce } from "@/shared/api/requests/products/products.model"
 import ErrorFallback from "@/components/animate/ErrorFalback"
 import LoadingProduct from "@/components/animate/LoadingProduct"
@@ -22,7 +22,7 @@ export default function ProductDetail() {
   const location = useLocation()
   const { data, isLoading, isError } = useQuery({
     queryKey: ["one-product", id],
-    queryFn: () => getOneProducts(Number(id)),
+    queryFn: () => getOneProduct(id!),
     enabled: !!id,
   })
 

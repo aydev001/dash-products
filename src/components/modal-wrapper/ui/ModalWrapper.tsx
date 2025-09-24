@@ -13,7 +13,7 @@ const ModalWrapper = ({ children, title = "Modal" }: ModalWrapperProps) => {
 
   return (
     <Dialog open={true} onOpenChange={() => navigate(-1)}>
-      <DialogContent className="rounded-sm p-4">
+      <DialogContent className="rounded-sm p-4 max-h-[90vh] overflow-y-auto scrollbar-thin gap-1">
         <DialogHeader>
           <DialogTitle className="font-semibold">
             {title}

@@ -1,4 +1,4 @@
-import ProductDetail from "@/features/product-detail/ui/ProductDetail"
+import ProductDetail from "@/features/products/product-detail/ui/ProductDetail"
 
 const ProductDetailPage = () => {
   return (

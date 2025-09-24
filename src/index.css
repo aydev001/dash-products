@@ -48,7 +48,7 @@
   --font-sans : 'Inter', ui-sans-serif;
   --radius: 0.625rem;
 
-  --background: oklch(96.192% 0.01744 285.983); 
+  --background: oklch(97.842% 0.01071 286.053); 
   --foreground: oklch(0.18 0.03 250); 
 
   --card: oklch(1 0 0);
@@ -146,5 +146,24 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 5px; 
+    height: 5px; 
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 15px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #9ca3af; 
+    border-radius: 15px; 
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #6b7280; 
   }
 }

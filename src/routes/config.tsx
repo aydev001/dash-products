@@ -67,7 +67,7 @@ export const modalRoutes: RouteObject[] = [
         path: pages.products.delete(":id"),
         element:
             <ProtectedRoute>
-                <ModalWrapper title="Update product">
+                <ModalWrapper title="Delete product">
                     <DeleteProductPage />
                 </ModalWrapper>
             </ProtectedRoute>

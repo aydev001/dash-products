@@ -1,7 +1,9 @@
+import EditProduct from "@/features/products/product-modal/ui/EditProduct"
+
 const EditProductPage = () => {
   return (
     <div>
-      Edit product page
+      <EditProduct/>
     </div>
   )
 }
