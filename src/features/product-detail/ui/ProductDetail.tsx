@@ -13,6 +13,7 @@ import type { IProductsResponce } from "@/shared/api/requests/products/products.
 import ErrorFallback from "@/components/animate/ErrorFalback"
 import LoadingProduct from "@/components/animate/LoadingProduct"
 import { Edit, Trash } from "lucide-react"
+import { categories } from "@/shared/constants/mockData"
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>()
@@ -58,7 +59,7 @@ export default function ProductDetail() {
             </Button>
             <Button size={"sm"} className="text-sm" variant="default">
                 <Edit/>
-                <span>Edit</span>
+                <span>Update</span>
             </Button>
             <Button size={"sm"} className="text-sm" variant="destructive">
                 <Trash/>
@@ -83,10 +84,9 @@ export default function ProductDetail() {
             </p>
             <p className="text-muted-foreground text-sm">{product.description}</p>
 
-            {/* Small info grid */}
             <div className="grid grid-cols-2 gap-4 mt-4">
               <InfoBox label="Product ID" value={`#${product.id}`} />
-              <InfoBox label="Category" value={product.categoryId} />
+              <InfoBox label="Category" value={categories.find(item => item.id === product.id)?.title as string} />
             </div>
           </div>
         </CardContent>
@@ -95,7 +95,6 @@ export default function ProductDetail() {
   )
 }
 
-/* Info Box Component */
 function InfoBox({ label, value }: { label: string; value: string }) {
   return (
     <div className="p-3 border rounded-md">
