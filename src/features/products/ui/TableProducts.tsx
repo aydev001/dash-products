@@ -14,7 +14,6 @@ const TableProducts = ({ products }: TableProps) => {
     const naviagate = useNavigate()
     const location = useLocation()
 
-    console.log(location)
     return (
         <div className="rounded-sm border shadow-sm p-4 bg-white mb-[5px]">
             <div className="pb-4 flex justify-between items-center gap-1 border-b">
@@ -43,14 +42,14 @@ const TableProducts = ({ products }: TableProps) => {
                             <TableCell className="font-semibold w-[50px] text-center">
                                 {index + 1}
                             </TableCell>
-                            <TableCell className="flex items-center gap-3 float-start mt-1">
+                            <TableCell className="flex items-center min-w-max w-full gap-3 float-start mt-1">
                                 <img
                                     src={product.image}
                                     alt={product.title}
                                     className="w-10 h-10 object-cover rounded-md border"
                                 />
-                                <div>
-                                    <p className="font-medium">{product.title}</p>
+                                <div className="flex-1">
+                                    <p className="font-medium truncate max-sm:w-[100px]">{product.title}</p>
                                     <span className="text-xs text-gray-500">ID: #{product.id}</span>
                                 </div>
                             </TableCell>

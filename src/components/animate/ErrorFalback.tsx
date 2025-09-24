@@ -8,9 +8,9 @@ const ErrorFallback = () => {
 
   return (
     <div className="flex flex-col justify-center items-center h-[80vh] text-center px-4">
-      <div className="flex items-center gap-2 text-red-600 mb-4">
-        <AlertTriangle size={40} />
-        <h1 className="text-2xl font-bold">Something went wrong</h1>
+      <div className="flex items-center gap-2 text-neutral-700 mb-4">
+        <AlertTriangle size={30} />
+        <h1 className="text-xl font-bold">Something went wrong</h1>
       </div>
 
       <p className="text-muted-foreground mb-6 max-w-md">
