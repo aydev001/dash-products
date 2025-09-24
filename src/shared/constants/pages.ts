@@ -5,7 +5,8 @@ export const pages = {
     dashboard : "/dashboard",
     products : {   
         new : "/products/new",
-        detail : (id: string) => `/products/${id}`,
-        edit : (id: string) => `/products/${id}/edit`
+        detail : (id: string) => `/products/${id}/detail`,
+        edit : (id: string) => `/products/${id}/edit`,
+        delete : (id: string) => `/products/${id}/delete`
     }
 }

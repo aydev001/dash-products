@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams, useNavigate, useLocation } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 import {
   Card,
@@ -12,12 +12,14 @@ import { getOneProducts } from "@/shared/api/requests/products/products.request"
 import type { IProductsResponce } from "@/shared/api/requests/products/products.model"
 import ErrorFallback from "@/components/animate/ErrorFalback"
 import LoadingProduct from "@/components/animate/LoadingProduct"
-import { Edit, Trash } from "lucide-react"
+import { ArrowLeft, Edit, Trash } from "lucide-react"
 import { categories } from "@/shared/constants/mockData"
+import { pages } from "@/shared/constants/pages"
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>()
-
+  const navigate = useNavigate()
+  const location = useLocation()
   const { data, isLoading, isError } = useQuery({
     queryKey: ["one-product", id],
     queryFn: () => getOneProducts(Number(id)),
@@ -27,7 +29,7 @@ export default function ProductDetail() {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-[80vh]">
-        <LoadingProduct/>
+        <LoadingProduct />
       </div>
     )
   }
@@ -35,7 +37,7 @@ export default function ProductDetail() {
   if (isError) {
     return (
       <p className="text-center">
-        <ErrorFallback/>
+        <ErrorFallback />
       </p>
     )
   }
@@ -44,6 +46,7 @@ export default function ProductDetail() {
   if (!product) {
     return <p className="text-center text-gray-500 mt-10">Mahsulot topilmadi</p>
   }
+
 
   return (
     <div className="space-y-4 mb-2">
@@ -54,16 +57,17 @@ export default function ProductDetail() {
             <CardDescription>View product information</CardDescription>
           </div>
           <div className="flex gap-2 flex-wrap">
-            <Button size={"sm"} className="text-sm" variant="secondary" asChild>
-              <Link to={"/dashboard"}>← Back to Table</Link>
+            <Button onClick={() => navigate(-1)} size={"sm"} className="text-sm" variant="secondary">
+              <ArrowLeft />
+              <span>Back to Table</span>
             </Button>
-            <Button size={"sm"} className="text-sm" variant="default">
-                <Edit/>
-                <span>Update</span>
+            <Button onClick={() => navigate(pages.products.edit(product.id), { state: { background: location } })} size={"sm"} className="text-sm" variant="default">
+              <Edit />
+              <span>Update</span>
             </Button>
-            <Button size={"sm"} className="text-sm" variant="destructive">
-                <Trash/>
-                <span>Delete</span>
+            <Button onClick={() => navigate(pages.products.delete(product.id), { state: { background: location } })} size={"sm"} className="text-sm" variant="destructive">
+              <Trash />
+              <span>Delete</span>
             </Button>
           </div>
         </CardHeader>

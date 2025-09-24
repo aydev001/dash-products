@@ -11,7 +11,7 @@ interface TableProps {
 }
 
 const TableProducts = ({ products }: TableProps) => {
-    const naviagate = useNavigate()
+    const navigate = useNavigate()
     const location = useLocation()
 
     return (
@@ -21,7 +21,7 @@ const TableProducts = ({ products }: TableProps) => {
                     <h2 className="font-semibold text-lg">Product Inventory</h2>
                     <p className="text-muted-foreground text-sm">Manage your products with full CRUD operators</p>
                 </div>
-                <Button onClick={() => naviagate(pages.products.new, {state: { background: location }})}>
+                <Button onClick={() => navigate(pages.products.new, {state: { background: location }})}>
                     <Plus/>
                     <span>Add New Product</span>
                 </Button>
@@ -68,21 +68,21 @@ const TableProducts = ({ products }: TableProps) => {
                                 <Button
                                     size="icon"
                                     variant="ghost"
-                                    onClick={() => naviagate(pages.products.detail(product.id))}
+                                    onClick={() => navigate(pages.products.detail(product.id))}
                                 >
                                     <Eye className="w-4 h-4 text-blue-500" />
                                 </Button>
                                 <Button
                                     size="icon"
                                     variant="ghost"
-                                    onClick={() => naviagate(pages.products.edit(product.id), {state: { background: location }})}
+                                    onClick={() => navigate(pages.products.edit(product.id), {state: { background: location }})}
                                 >
                                     <Pencil className="w-4 h-4 text-green-600" />
                                 </Button>
                                 <Button
                                     size="icon"
                                     variant="ghost"
-                                    onClick={() => naviagate("")}
+                                    onClick={() => navigate(pages.products.delete(product.id), {state: { background: location }})}
                                 >
                                     <Trash className="w-4 h-4 text-red-500" />
                                 </Button>

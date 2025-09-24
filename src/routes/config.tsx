@@ -12,6 +12,7 @@ import { pages } from "@/shared/constants/pages";
 import ModalWrapper from "@/components/modal-wrapper/ui/ModalWrapper";
 import GuestRoute from "./GuestRoute";
 import AuthLayout from "@/layouts/AuthLayout";
+import DeleteProductPage from "@/pages/products/product-modal/DeleteProductPage";
 
 export const mainRoutes: RouteObject[] = [
     {
@@ -31,24 +32,6 @@ export const mainRoutes: RouteObject[] = [
                     <ProtectedRoute>
                         <ProductDetailPage />
                     </ProtectedRoute>
-            },
-            {
-                path: pages.products.new,
-                element:
-                    <ProtectedRoute>
-                        <ModalWrapper>
-                            <CreateProductPage />
-                        </ModalWrapper>
-                    </ProtectedRoute>
-            },
-            {
-                path: pages.products.edit(":id"),
-                element:
-                    <ProtectedRoute>
-                        <ModalWrapper>
-                            <EditProductPage />
-                        </ModalWrapper>
-                    </ProtectedRoute>
             }
         ],
     },
@@ -58,5 +41,35 @@ export const mainRoutes: RouteObject[] = [
             { path: pages.login, element: <GuestRoute><LoginPage /></GuestRoute> },
             { path: pages.register, element: <GuestRoute><RegisterPage /></GuestRoute> },
         ]
+    }
+]
+
+export const modalRoutes: RouteObject[] = [
+    {
+        path: pages.products.new,
+        element:
+            <ProtectedRoute>
+                <ModalWrapper title="Create product">
+                    <CreateProductPage />
+                </ModalWrapper>
+            </ProtectedRoute>
+    },
+    {
+        path: pages.products.edit(":id"),
+        element:
+            <ProtectedRoute>
+                <ModalWrapper title="Update product">
+                    <EditProductPage />
+                </ModalWrapper>
+            </ProtectedRoute>
+    },
+    {
+        path: pages.products.delete(":id"),
+        element:
+            <ProtectedRoute>
+                <ModalWrapper title="Update product">
+                    <DeleteProductPage />
+                </ModalWrapper>
+            </ProtectedRoute>
     }
 ]

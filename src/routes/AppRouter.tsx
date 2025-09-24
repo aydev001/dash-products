@@ -1,5 +1,5 @@
 import { useLocation, useRoutes } from "react-router-dom"
-import { mainRoutes } from "./config"
+import { mainRoutes, modalRoutes } from "./config"
 import NotFoundPage from "@/components/not-fount/NotFoundPage"
 
 const AppRouter = () => {
@@ -12,7 +12,7 @@ const AppRouter = () => {
   )
 
   const modals = useRoutes(
-    [...mainRoutes, { path: "*", element: <NotFoundPage /> }],
+    [...modalRoutes, { path: "*", element: <NotFoundPage /> }],
     location
   )
 
