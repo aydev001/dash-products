@@ -86,7 +86,7 @@ export default function ProductDetail() {
 
             <div className="grid grid-cols-2 gap-4 mt-4">
               <InfoBox label="Product ID" value={`#${product.id}`} />
-              <InfoBox label="Category" value={categories.find(item => item.id === product.id)?.title as string} />
+              <InfoBox label="Category" value={categories.find(item => item.id == product.categoryId)?.title as string} />
             </div>
           </div>
         </CardContent>
@@ -99,7 +99,7 @@ function InfoBox({ label, value }: { label: string; value: string }) {
   return (
     <div className="p-3 border rounded-md">
       <p className="text-xs text-muted-foreground">{label}</p>
-      <p className="font-medium">{value}</p>
+      <p className="font-medium text-sm">{value}</p>
     </div>
   )
 }
